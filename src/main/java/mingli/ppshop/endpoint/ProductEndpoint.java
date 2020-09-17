@@ -33,12 +33,12 @@ public class ProductEndpoint {
     public ResponseEntity<?> createAuthToken(@RequestBody AuthRequest authRequest) throws Exception {
         try {
             authenticationManager.authenticate(
-                    new UsernamePasswordAuthenticationToken(authRequest.getUserName(), authRequest.getPassword())
+                    new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPassword())
             );
         } catch (BadCredentialsException e) {
             throw new Exception("Incorrect username or password");
         }
-        final UserDetails userDetails = ppUserDetailsService.loadUserByUsername(authRequest.getUserName());
+        final UserDetails userDetails = ppUserDetailsService.loadUserByUsername(authRequest.getUsername());
         final String jwt = jwtUtil.generateToken(userDetails);
 
         return ResponseEntity.ok(new AuthResponse(jwt));
