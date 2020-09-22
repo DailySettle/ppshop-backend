@@ -15,14 +15,12 @@ public class PPUserDetails implements UserDetails {
 
     private String userName;
     private String password;
-    private String email;
     private boolean active;
     private List<GrantedAuthority> authorities;
 
     public PPUserDetails(User user) {
         this.userName = user.getUserName();
         this.password = user.getPassword();
-        this.email = user.getEmail();
         this.active = user.isActive();
         this.authorities = Arrays.stream(user.getRoles().split(","))
                 .map(SimpleGrantedAuthority::new)

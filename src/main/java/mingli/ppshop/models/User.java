@@ -8,7 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity
+@Entity(name = "users")
 @Getter
 @Setter
 public class User {
@@ -18,7 +18,6 @@ public class User {
     private int id;
     private String userName;
     private String password;
-    private String email;
     private boolean active;
     private String roles;
 

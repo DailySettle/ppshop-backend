@@ -29,7 +29,8 @@ public class ProductEndpoint {
         return "Hello";
     }
 
-    @PostMapping("/authenticate")
+    @PostMapping("/login")
+    @CrossOrigin(origins = "*", maxAge = 3600)
     public ResponseEntity<?> createAuthToken(@RequestBody AuthRequest authRequest) throws Exception {
         try {
             authenticationManager.authenticate(
@@ -41,6 +42,6 @@ public class ProductEndpoint {
         final UserDetails userDetails = ppUserDetailsService.loadUserByUsername(authRequest.getUsername());
         final String jwt = jwtUtil.generateToken(userDetails);
 
-        return ResponseEntity.ok(new AuthResponse(jwt));
+        return ResponseEntity.ok(new AuthResponse(userDetails.getUsername(), jwt));
     }
 }
