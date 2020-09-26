@@ -1,6 +1,7 @@
 package mingli.ppshop.models;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Entity;
@@ -11,6 +12,7 @@ import javax.persistence.Id;
 @Entity(name = "users")
 @Getter
 @Setter
+@NoArgsConstructor
 public class User {
 
     @Id
@@ -21,4 +23,10 @@ public class User {
     private boolean active;
     private String roles;
 
+    public User(String userName, String password, boolean active, String roles) {
+        this.userName = userName;
+        this.password = password;
+        this.active = active;
+        this.roles = roles;
+    }
 }
