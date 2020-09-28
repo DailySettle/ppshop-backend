@@ -18,6 +18,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/user")
+@CrossOrigin(origins = "*")
 public class ProductEndpoint {
 
     @Autowired
@@ -37,8 +39,7 @@ public class ProductEndpoint {
         return "Hello";
     }
 
-    @PostMapping("/user/login")
-    @CrossOrigin(origins = "*", maxAge = 3600)
+    @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody AuthRequest authRequest) {
         try {
             authenticationManager.authenticate(
@@ -53,8 +54,7 @@ public class ProductEndpoint {
         return new ResponseEntity<>(new AuthResponse(userDetails.getUsername(), jwt), HttpStatus.OK);
     }
 
-    @PostMapping("/user/signup")
-    @CrossOrigin(origins = "*", maxAge = 3600)
+    @PostMapping("/signup")
     public ResponseEntity<?> signup(@RequestBody AuthRequest authRequest) {
 
         User created = userRepository.save(new User(authRequest.getUsername(), authRequest.getPassword(), true, "ROLE_USER"));
