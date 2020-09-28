@@ -13,13 +13,13 @@ import java.util.stream.Collectors;
 @NoArgsConstructor
 public class PPUserDetails implements UserDetails {
 
-    private String userName;
+    private String username;
     private String password;
     private boolean active;
     private List<GrantedAuthority> authorities;
 
     public PPUserDetails(User user) {
-        this.userName = user.getUserName();
+        this.username = user.getUsername();
         this.password = user.getPassword();
         this.active = user.isActive();
         this.authorities = Arrays.stream(user.getRoles().split(","))
@@ -39,7 +39,7 @@ public class PPUserDetails implements UserDetails {
 
     @Override
     public String getUsername() {
-        return userName;
+        return username;
     }
 
     @Override
