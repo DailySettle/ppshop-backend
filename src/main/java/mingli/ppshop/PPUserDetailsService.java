@@ -1,7 +1,7 @@
 package mingli.ppshop;
 
 import mingli.ppshop.models.PPUserDetails;
-import mingli.ppshop.models.User;
+import mingli.ppshop.entity.User;
 import mingli.ppshop.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;

@@ -1,9 +1,10 @@
-package mingli.ppshop.models;
+package mingli.ppshop.entity;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import mingli.ppshop.datatypes.CATEGORY;
+import mingli.ppshop.dto.ProductDto;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -34,5 +35,4 @@ public class Product {
         this.quantity = quantity;
         this.imageUrl = imageUrl;
     }
-
 }

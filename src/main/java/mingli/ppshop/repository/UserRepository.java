@@ -1,6 +1,6 @@
 package mingli.ppshop.repository;
 
-import mingli.ppshop.models.User;
+import mingli.ppshop.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

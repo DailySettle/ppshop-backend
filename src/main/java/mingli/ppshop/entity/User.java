@@ -1,4 +1,4 @@
-package mingli.ppshop.models;
+package mingli.ppshop.entity;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
