@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/user")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:4200")
 @AllArgsConstructor
 public class UserController {
 
@@ -49,7 +49,6 @@ public class UserController {
 
     @PostMapping("/signup")
     public ResponseEntity<?> signup(@RequestBody AuthRequest authRequest) {
-
         userService.signup(authRequest);
 
         return new ResponseEntity<>("User Registration Successful", HttpStatus.CREATED);

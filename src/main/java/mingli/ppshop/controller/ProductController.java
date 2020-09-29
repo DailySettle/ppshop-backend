@@ -1,22 +1,31 @@
 package mingli.ppshop.controller;
 
-import mingli.ppshop.datatypes.CATEGORY;
-import mingli.ppshop.entity.Product;
+import lombok.AllArgsConstructor;
+import lombok.extern.java.Log;
+import mingli.ppshop.dto.ProductDto;
+import mingli.ppshop.service.ProductService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/product")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:4200")
+@AllArgsConstructor
+@Log
 public class ProductController {
 
+    private final ProductService productService;
+
     @GetMapping("")
-    public Product[] getAllProducts() {
-        return new Product[]{
-                new Product("Haribo 1", CATEGORY.A, "Happy Cola 200g", 0.97, 2, "https://onlineshop.haribo.com/media/image/e1/c0/b0/Happy-Cola-200-g_40016863151015b895bc20632e_260x260.png"),
-                new Product("Haribo 2", CATEGORY.A, "Saft Gold 175g", 0.87, 2, "https://onlineshop.haribo.com/media/image/a9/dd/86/Saft_GB_175g-jpg_260x260.png"),
-                new Product("Haribo 3", CATEGORY.A, "Pico Balla 175g", 0.88, 2, "https://onlineshop.haribo.com/media/image/55/83/b3/Pico-Balla-175-g_8426617106201_260x260.png")};
+    public ResponseEntity<?> getAllProducts() {
+        List<ProductDto> allProducts = productService.getAllProducts();
+
+        return new ResponseEntity<>(allProducts, HttpStatus.OK);
     }
 }
