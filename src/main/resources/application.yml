@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    url: jdbc:sqlserver://ppdbserver.database.windows.net:1433;database=ppshopdb;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
+    username: ppadmin@ppdbserver
+    password: Chenxiao2
+    initialization-mode: always
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.SQLServerDialect
+    show-sql: true
+logging:
+  file:
+    name: logs/app.log
