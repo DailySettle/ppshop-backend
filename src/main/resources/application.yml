@@ -1,13 +1,13 @@
 spring:
   datasource:
-    url: jdbc:sqlserver://ppdbserver.database.windows.net:1433;database=ppshopdb;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
-    username: ppadmin@ppdbserver
-    password: Chenxiao2
+    url: jdbc:mysql://${RDS_HOSTNAME:localhost}:${RDS_PORT:3306}/${RDS_DB_NAME:ppshop}?serverTimezone=UTC
+    username: ${RDS_USERNAME:ppshop}
+    password: ${RDS_PASSWORD:chenxiao}
     initialization-mode: always
   jpa:
     hibernate:
       ddl-auto: update
-    database-platform: org.hibernate.dialect.SQLServerDialect
+    database-platform: org.hibernate.dialect.MySQL8Dialect
     show-sql: true
 logging:
   file:

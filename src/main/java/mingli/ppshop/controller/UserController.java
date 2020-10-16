@@ -51,7 +51,7 @@ public class UserController {
     public ResponseEntity<?> signup(@RequestBody AuthRequest authRequest) {
         userService.signup(authRequest);
 
-        return new ResponseEntity<>("User Registration Successful", HttpStatus.CREATED);
+        return new ResponseEntity<>("User Registration Successful", HttpStatus.OK);
     }
 
 }

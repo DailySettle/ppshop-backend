@@ -5,11 +5,14 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import mingli.ppshop.datatypes.CATEGORY;
 
+import java.util.UUID;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProductDto {
 
+    private UUID id;
     private String name;
     private CATEGORY category;
     private String description;
