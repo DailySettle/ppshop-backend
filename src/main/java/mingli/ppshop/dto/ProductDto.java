@@ -19,4 +19,6 @@ public class ProductDto {
     private double price;
     private int quantity;
     private String imageUrl;
+    private boolean isNewArrive;
+    private boolean isOnSale;
 }
