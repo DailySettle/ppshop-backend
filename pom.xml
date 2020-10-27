@@ -89,11 +89,17 @@
         <version>1.11.0</version>  
         <configuration>
           <schemaVersion>V2</schemaVersion>
-          <subscriptionId>6c7e91bb-9878-4139-ac5c-8d8c7827e8d1</subscriptionId>
-          <resourceGroup>ppshop-1602782436115-rg</resourceGroup>
-          <appName>ppshop-1602782436115</appName>
-          <pricingTier>P1v2</pricingTier>
+          <subscriptionId>def94520-fff3-4713-98b1-845b4f94af26</subscriptionId>
+          <resourceGroup>ppshop</resourceGroup>
+          <appName>ppshop-backend</appName>
+          <pricingTier>B1</pricingTier>
           <region>westeurope</region>
+          <appSettings>
+            <property>
+              <name>JAVA_OPTS</name>
+              <value>-Dserver.port=80</value>
+            </property>
+          </appSettings>
           <runtime>
             <os>linux</os>
             <javaVersion>java11</javaVersion>
