@@ -2,7 +2,7 @@ package mingli.ppshop;
 
 import mingli.ppshop.models.PPUserDetails;
 import mingli.ppshop.entity.User;
-import mingli.ppshop.repository.UserRepository;
+import mingli.ppshop.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -15,11 +15,11 @@ import java.util.Optional;
 public class PPUserDetailsService implements UserDetailsService {
 
     @Autowired
-    UserRepository userRepository;
+    UserDao userDao;
 
     @Override
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
-        Optional<User> user = userRepository.findByUsername(userName);
+        Optional<User> user = userDao.findByUsername(userName);
         user.orElseThrow(() -> new UsernameNotFoundException("Not found: " + userName));
         return user.map(PPUserDetails::new).get();
     }

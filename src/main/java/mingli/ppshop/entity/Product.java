@@ -3,10 +3,8 @@ package mingli.ppshop.entity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import mingli.ppshop.datatypes.CATEGORY;
-import mingli.ppshop.dto.ProductDto;
+import mingli.ppshop.datatypes.ProductCategory;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -22,15 +20,16 @@ public class Product {
     @GeneratedValue
     private UUID id;
     private String name;
-    private CATEGORY category;
+    private ProductCategory category;
     private String description;
     private double price;
     private int quantity;
     private String imageUrl;
     private boolean isNewArrive;
     private boolean isOnSale;
+    private double rating;
 
-    public Product(String name, CATEGORY category, String description, double price, int quantity, String imageUrl, boolean isNewArrive, boolean isOnSale) {
+    public Product(String name, ProductCategory category, String description, double price, int quantity, String imageUrl, boolean isNewArrive, boolean isOnSale, double rating) {
         this.name = name;
         this.category = category;
         this.description = description;
@@ -39,5 +38,6 @@ public class Product {
         this.imageUrl = imageUrl;
         this.isNewArrive = isNewArrive;
         this.isOnSale = isOnSale;
+        this.rating = rating;
     }
 }
