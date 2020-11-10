@@ -1,7 +1,6 @@
 package mingli.ppshop.controller;
 
 import lombok.AllArgsConstructor;
-import lombok.extern.java.Log;
 import mingli.ppshop.dto.ProductDto;
 import mingli.ppshop.service.ProductService;
 import mingli.ppshop.util.PageResult;
